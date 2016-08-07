@@ -28,5 +28,8 @@
   },
   "next_visit": { "message": "Prochaine visite :" },
   "never": { "message": "Jamais" },
-  "custom": { "message": "Personnalisé" }
+  "custom": { "message": "Personnalisé" },
+  "add_note": { "message": "Ajouter une note" },
+  "edit_note": { "message": "Modifier la note" },
+  "save": { "message": "Sauvegarder" }
 }

@@ -15,8 +15,14 @@ const nextVisitIsToday = require('./next_visit_is_today')
 const API = {
   getById: (id)=> get(id).then(_.first),
   search: search,
-  updateTitle: (id, title, frequency) => {
-    return update(id, { title: bookmarkTitle.format(title, frequency, true) })
+  updateFrequencyData: (id, title, frequency) => {
+    return update(id, { title: bookmarkTitle.format(title, frequency) })
+  },
+  updateNote: (id, note) => {
+    return API.getById(id)
+    .then((bookmarkData) => {
+      return update(id, {title: bookmarkTitle.updateNote(bookmarkData.title, note)})
+    })
   },
   removeById: remove,
   parse: (bookmarkData) => {

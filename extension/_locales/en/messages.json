@@ -28,5 +28,8 @@
   },
   "next_visit": { "message": "Next visit:" },
   "never": { "message": "Never" },
-  "custom": { "message": "Custom" }
+  "custom": { "message": "Custom" },
+  "add_note": { "message": "Add note" },
+  "edit_note": { "message": "Edit note" },
+  "save": { "message": "Save" }
 }

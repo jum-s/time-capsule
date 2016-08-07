@@ -24,9 +24,9 @@ h2, .settings, .never, .custom{
 }
 
 .custom{
-  @include bg-hover($light-blue, darken($light-blue, 10%))
+  @include bg-hover($light-blue, $darker-blue)
   &.selected{
-    background-color: darken($light-blue, 10%);
+    background-color: $darker-blue;
   }
 }
 
@@ -70,4 +70,14 @@ h2, .settings, .never, .custom{
       animation-duration: 0.2s;
     }
   }
+}
+
+a#addNote{
+ color: $light-blue;
+ text-decoration: underline;
+ font-weight: bold;
+ transition: color 0.5s;
+ &:hover{
+  color: $darker-blue;
+ }
 }

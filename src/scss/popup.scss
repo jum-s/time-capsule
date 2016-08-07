@@ -17,6 +17,7 @@ body {
   height: inherit;
   text-align: center;
   white-space: nowrap;
+  max-width: 50em;
 }
 
 h2{
@@ -24,5 +25,10 @@ h2{
   font-size: 1.2em;
 }
 
+a{
+  cursor: pointer;
+}
+
 @import './options_view';
 @import './typing_view';
+@import './note_view';

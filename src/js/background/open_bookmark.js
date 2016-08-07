@@ -11,7 +11,7 @@ module.exports = function open (bookmark) {
       // open the tab
       return tabs.create({url: bookmarkData.url, active: false})
       // re-set the periodicity data
-      .then(bookmarks.updateTitle.bind(null, id, title, frequency))
+      .then(bookmarks.updateFrequencyData.bind(null, id, title, frequency))
       // update the view
     } else {
       console.error('bookmark data not found', bookmark)

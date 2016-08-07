@@ -14,13 +14,16 @@ const API = {
   ArrowLeft: matrix.left,
   ArrowRight: matrix.right,
   Enter: select,
-  Delete: actions.remove
+  Delete: actions.remove,
+  'n': actions.addNote
 }
 
 var lastKeyWasFloat = false
 
 function keydownListener (e) {
   const key = parseKey(e)
+  if (specialTarget(e, key)) return
+
   let isFloatCharacter = /^[\d\.]{1}$/.test(key)
 
   if (_.has(ignoreKey, key)) return
@@ -48,10 +51,30 @@ function keydownListener (e) {
   } else {
     views.showFrequencyOptionsView()
     lastKeyWasFloat = false
-    const action = API[key]
-    if (action) {
-      action(e)
-    }
+    checkActionKeys(e, key)
+  }
+}
+
+function checkActionKeys (e, key) {
+  const action = API[key]
+  if (action) {
+    action(e)
+  }
+}
+
+const specialTarget = (e, key) => {
+  switch (e.target.id) {
+    case 'note':
+      if (e.ctrlKey && key === 'Enter') {
+        actions.saveNote()
+      }
+      return true
+    case 'saveNote':
+      if (key === 'Enter') {
+        actions.saveNote()
+      }
+      return true
+    default: return false
   }
 }
 

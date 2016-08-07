@@ -1,5 +1,6 @@
 const keyAliases = {
-  ',': '.'
+  ',': '.',
+  'N': 'n'
 }
 
 // allow to type a figure without using Shift on a French keyboard
