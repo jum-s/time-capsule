@@ -4,6 +4,7 @@ const tabs = require('../lib/tabs')
 const _ = require('../lib/utils')
 const CelebrateSuccess = require('./celebrate_success')
 const views = require('./views')
+const { defaultFrequency } = require('../lib/config')
 
 function setFrequency (frequency) {
   icon.enable(frequency)
@@ -38,10 +39,10 @@ module.exports = {
         return bookmarks.updateNote(bookmarkId, note)
       } else {
         // create a bookmark with the default frequency and save the note
-        icon.enable(frequency)
+        icon.enable(defaultFrequency)
         return saveCurrentUrlPeriodicity()
         .then((bookmarkData) => bookmarks.updateNote(bookmarkData.id, note))
-        .then(CelebrateSuccess(frequency))
+        .then(CelebrateSuccess(defaultFrequency))
       }
     })
     .then(window.close)

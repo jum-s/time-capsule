@@ -1,0 +1,28 @@
+nav{
+  height: 2.5em;
+  background-color: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  a{
+    font-weight: bold;
+    color: white;
+    flex: 1 0 0;
+    padding: 0.5em 0.5em 0.4em 0.5em;
+    transition: background-color 0.5s;
+    @include bg-hover(#aaa, #888);
+    &.selected{
+      @include bg-hover($light-blue, $darker-blue);
+    }
+    &:first-child{
+      // margin-left: auto;
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+    }
+    &:last-child{
+      // margin-right: auto;
+      border-top-right-radius: 1px;
+      border-bottom-right-radius: 1px;
+    }
+  }
+}

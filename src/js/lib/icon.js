@@ -1,3 +1,4 @@
+const lightBlue = '#4fbcff'
 // It could theorically be possible to check a lastFrequency variable to know
 // if an update is needed, but this would involve manipulating this variable
 // from both the background and the popup context, (for instance, by setting on this
@@ -7,6 +8,7 @@ module.exports = {
   enable: function (frequency) {
     setIcon('')
     chrome.browserAction.setBadgeText({ text: formatFrequency(frequency) })
+    chrome.browserAction.setBadgeBackgroundColor({ color: lightBlue})
   },
   disable: function () {
     setIcon('disabled-')

@@ -18,6 +18,8 @@ body {
   text-align: center;
   white-space: nowrap;
   max-width: 50em;
+  min-width: 20em;
+  min-height: 15em;
 }
 
 h2{
@@ -29,6 +31,7 @@ a{
   cursor: pointer;
 }
 
+@import './nav';
 @import './options_view';
 @import './typing_view';
 @import './note_view';

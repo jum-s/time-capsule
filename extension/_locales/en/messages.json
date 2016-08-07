@@ -31,5 +31,7 @@
   "custom": { "message": "Custom" },
   "add_note": { "message": "Add note" },
   "edit_note": { "message": "Edit note" },
-  "save": { "message": "Save" }
+  "save": { "message": "Save" },
+  "periodicity": { "message": "Periodicity" },
+  "note": { "message": "Note" }
 }

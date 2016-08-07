@@ -1,6 +1,7 @@
 const _ = require('../lib/utils')
 const icon = require('../lib/icon')
 const bookmarks = require('../lib/bookmarks')
+const browserAction = require('../lib/browser_action')
 
 module.exports = (url) => {
   bookmarks.getByUrl(url)
@@ -19,7 +20,11 @@ function parsePeriodicityData (bookmarkData) {
 function pageFound (bookmarkData) {
   const parsedData = bookmarks.parse(bookmarkData)
   if (parsedData) {
-    icon.enable(parsedData.frequency)
+    const { frequency, note } = parsedData
+    icon.enable(frequency)
+    if (note && note.length > 0) {
+      browserAction.openPopup()
+    }
   } else {
     // known case: if the bookmark title was manually modified and made unparsable
     icon.disable()

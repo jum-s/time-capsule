@@ -5,6 +5,7 @@ const noteDisplayEl = document.querySelector('#noteDisplay')
 const typingEl = document.querySelector('#typing')
 const helpEl = require('./build_help')
 const lastKeys = require('./last_keys')
+const { show, hide } = require('./visibility')
 
 var lastViewWasOptions = true
 
@@ -31,6 +32,7 @@ module.exports = {
       hide(helpEl)
     }
     hide(optionsViewEl)
+    hide(noteViewEl)
     show(typingViewEl)
     typingEl.textContent = frequency
     typingEl.classList.add('success')
@@ -44,8 +46,11 @@ module.exports = {
     // Selecting on next tick so that the key triggering showNoteView
     // isn't catched as an input to the textarea
     setTimeout(noteEl.select.bind(noteEl), 0)
+  },
+  showNoteReadingView: () => {
+    hide(typingViewEl)
+    hide(optionsViewEl)
+    hide(noteViewEl)
+    show(noteDisplayEl)
   }
 }
-
-const show = (el) => el.style.display = 'block'
-const hide = (el) => el.style.display = 'none'
